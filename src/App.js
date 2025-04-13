@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import MiTeclado from './component/mi-teclado';
+import Result from './component/result';
 
 function App() {
   const [result, setResult] = useState('');
@@ -17,15 +18,15 @@ function App() {
 
   return (
     <div className="app">
-      {/* Mostramos el resultado directamente aquí */}
-      <div className="result-display">
-        <h3>Resultado:</h3>
-        <p>{result || 'Valor vacío'}</p>
+      <h1>Mi Teclado Virtual</h1>
+      
+      <div className="result-display-container">
+        <Result text={result} />
       </div>
       
-      <div className="keyboard">
-        <MiTeclado onKeyPress={handleKeyPress} />
-      </div>
+      <h3 className="result-label">Resultado:</h3>
+      
+      <MiTeclado onKeyPress={handleKeyPress} />
     </div>
   );
 }
